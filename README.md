@@ -5,7 +5,8 @@
 [![Build Status](https://travis-ci.org/ancientlore/hashsrv.svg?branch=master)](https://travis-ci.org/ancientlore/hashsrv)
 [![GoDoc](https://godoc.org/github.com/ancientlore/hashsrv?status.svg)](https://godoc.org/github.com/ancientlore/hashsrv)
 
-A [configuration file](hashsrv.config) in [TOML](https://github.com/mojombo/toml) format is used to set up hashsrv.
+A [configuration file](hashsrv.config) in [TOML](https://github.com/mojombo/toml) format is used to set up hashsrv,
+but environment variables and command-line options may be used as well.
 
 Using hashsrv
 -------------
