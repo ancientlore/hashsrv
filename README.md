@@ -40,7 +40,7 @@ As a convenience, the dictionary is initialized with the following values:
 
 To output a debug view instead of the result, add ?debug=1 to the URL.
 
-[Try It!](http://tinkertoy.skyegg.com:8080/Hello%20World/32/rand/md5/hmac-md5/hex?debug=1)
+[Try It!](http://served.ancientlore.io:8080/Hello%20World/32/rand/md5/hmac-md5/hex?debug=1)
 
 ### Hash Functions
 
@@ -198,7 +198,7 @@ POST /                                                  | Returns what you poste
 POST /sha256                                            | Returns SHA256 hash as binary data
 POST /sha256/hex                                        | Returns SHA256 hash as hex encoding
 POST /unhex/snappy/hex                                  | Decodes hex data, compresses it using Snappy, and encodes the result to hex
-GET /Hello%20World/32/rand/md5/hmac-md5/hex        | Pushes "Hello World" on the stach, generates 32 bytes of random data as the HMAC key (which is then hashed with md5), computes the HMAC-MD5 hash, and converts the result to hex. [Try It!](http://tinkertoy.skyegg.com:8080/Hello%20World/32/rand/md5/hmac-md5/hex)
+GET /Hello%20World/32/rand/md5/hmac-md5/hex        | Pushes "Hello World" on the stach, generates 32 bytes of random data as the HMAC key (which is then hashed with md5), computes the HMAC-MD5 hash, and converts the result to hex. [Try It!](http://served.ancientlore.io:8080/Hello%20World/32/rand/md5/hmac-md5/hex)
 POST /MyKeyHere/sha512/hmac-sha512/base64-url                  | Hashes the data with HMAC-SHA512 using the the sha512 hash of the key "MyKeyHere" and returns it as base64.
 
 Running hashsrv
