@@ -1,4 +1,6 @@
-FROM golang
+FROM golang:alpine
+
+RUN apk add --update git subversion mercurial && rm -rf /var/cache/apk/*
 
 ADD hashsrv.config /go/etc/hashsrv.config
 ADD . /go/src/github.com/ancientlore/hashsrv
