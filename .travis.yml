@@ -1,8 +1,13 @@
 language: go
 
+services:
+  - docker
+
+env:
+  GO111MODULE=on
+
 go:
-  - 1.12
-  - tip
+  - 1.12.7
 
 before_install:
   - go get github.com/mattn/goveralls
@@ -11,3 +16,6 @@ script:
   - go test -v ./cmd/hashsrv
   - go test -v -covermode=count -coverprofile=coverage.out ./engine
   - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t ancientlore/hashsrv:${TRAVIS_TAG:-latest} .
+  - docker push ancientlore/hashsrv:${TRAVIS_TAG:-latest}
