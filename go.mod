@@ -1,7 +1,7 @@
 module github.com/ancientlore/hashsrv
 
 require (
-	github.com/ancientlore/flagcfg v1.0.1
+	github.com/ancientlore/flagcfg v1.0.2
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/facebookgo/ensure v0.0.0-20200202191622-63f1cf65ac4c // indirect
 	github.com/facebookgo/flagenv v0.0.0-20160425205200-fcd59fca7456
@@ -9,7 +9,7 @@ require (
 	github.com/facebookgo/subset v0.0.0-20200203212716-c811ad88dec4 // indirect
 	github.com/golang/snappy v0.0.1
 	github.com/kardianos/service v1.1.0
-	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+	golang.org/x/crypto v0.0.0-20200707235045-ab33eee955e0
 )
 
 go 1.14
