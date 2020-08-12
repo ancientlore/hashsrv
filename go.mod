@@ -9,7 +9,7 @@ require (
 	github.com/facebookgo/subset v0.0.0-20200203212716-c811ad88dec4 // indirect
 	github.com/golang/snappy v0.0.1
 	github.com/kardianos/service v1.1.0
-	golang.org/x/crypto v0.0.0-20200707235045-ab33eee955e0
+	golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
 )
 
 go 1.14
