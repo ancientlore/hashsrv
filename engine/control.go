@@ -30,7 +30,7 @@ func (e *Engine) load() error {
 	if err == nil {
 		v := e.GetVariable(str)
 		if v == nil {
-			err = errors.New("Nil or no value called " + str)
+			err = errors.New("nil or no value called " + str)
 		} else {
 			e.stack.Push(v)
 		}
@@ -44,7 +44,7 @@ func (e *Engine) save() error {
 	if err == nil {
 		v := e.stack.Pop()
 		if v == nil {
-			err = errors.New("Cannot save - stack empty")
+			err = errors.New("cannot save - stack empty")
 		} else {
 			e.SetVariable(str, v)
 		}
@@ -89,12 +89,12 @@ func (e *Engine) slice() error {
 				err = errors.New("slice: expected 3 values on the stack")
 			} else {
 				if start > len(d) || end > len(d) {
-					err = errors.New("Out of range")
+					err = errors.New("out of range")
 				} else if end < 0 && start < 0 {
 					// do nothing
 				} else if end >= 0 && start >= 0 {
 					if start > end {
-						err = errors.New("Start greater than end")
+						err = errors.New("start greater than end")
 					} else {
 						d = d[start:end]
 					}
@@ -179,8 +179,8 @@ func (e *Engine) eq() error {
 	if val1 == nil || val2 == nil {
 		return errors.New("eq: expected 2 values on the stack")
 	}
-	if bytes.Compare(val1, val2) != 0 {
-		return errors.New("Values not equal")
+	if !bytes.Equal(val1, val2) {
+		return errors.New("values not equal")
 	}
 	return nil
 }
@@ -191,8 +191,8 @@ func (e *Engine) neq() error {
 	if val1 == nil || val2 == nil {
 		return errors.New("neq: expected 2 values on the stack")
 	}
-	if bytes.Compare(val1, val2) == 0 {
-		return errors.New("Values not expected to be equal")
+	if bytes.Equal(val1, val2) {
+		return errors.New("values not expected to be equal")
 	}
 	return nil
 }
@@ -205,7 +205,7 @@ func (e *Engine) call() error {
 
 	f, ok := e.values[nm]
 	if !ok {
-		return errors.New(fmt.Sprintf("call: cannot find %s", nm))
+		return fmt.Errorf("call: cannot find %s", nm)
 	}
 
 	p := strings.TrimPrefix(string(f), "/")

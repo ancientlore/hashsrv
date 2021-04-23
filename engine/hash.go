@@ -8,17 +8,18 @@ import (
 	"crypto/sha256"
 	"crypto/sha512"
 	"errors"
-	"golang.org/x/crypto/ripemd160"
 	"hash"
 	"hash/adler32"
 	"hash/crc32"
 	"hash/crc64"
 	"hash/fnv"
+
+	"golang.org/x/crypto/ripemd160"
 )
 
 func computeHash(h hash.Hash, data []byte) ([]byte, error) {
 	if data == nil {
-		return nil, errors.New("No data provided to hash")
+		return nil, errors.New("no data provided to hash")
 	}
 	_, err := h.Write(data)
 	if err != nil {
@@ -29,7 +30,7 @@ func computeHash(h hash.Hash, data []byte) ([]byte, error) {
 
 func computeHmac(hf func() hash.Hash, key []byte, data []byte) ([]byte, error) {
 	if key == nil {
-		return nil, errors.New("No key provided for hmac")
+		return nil, errors.New("no key provided for hmac")
 	}
 	/*
 		Now assuming key is already hashed by the user - more flexible

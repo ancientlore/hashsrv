@@ -3,9 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/ancientlore/flagcfg"
-	"github.com/facebookgo/flagenv"
-	"github.com/kardianos/service"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -13,6 +10,10 @@ import (
 	"os/signal"
 	"runtime"
 	"runtime/pprof"
+
+	"github.com/ancientlore/flagcfg"
+	"github.com/facebookgo/flagenv"
+	"github.com/kardianos/service"
 )
 
 var cpuprofile string
@@ -83,30 +84,30 @@ func init() {
 		log.Fatal(err)
 	}
 
-	if svcInstall == true && svcRemove == true {
+	if svcInstall && svcRemove {
 		log.Fatalln("Options -install and -remove cannot be used together.")
-	} else if svcInstall == true {
+	} else if svcInstall {
 		err = wsHashSrv.Install()
 		if err != nil {
 			log.Fatal(err)
 		}
 		log.Printf("Service \"%s\" installed.\n", displayName)
 		os.Exit(0)
-	} else if svcRemove == true {
+	} else if svcRemove {
 		err = wsHashSrv.Uninstall()
 		if err != nil {
 			log.Fatal(err)
 		}
 		log.Printf("Service \"%s\" removed.\n", displayName)
 		os.Exit(0)
-	} else if svcStart == true {
+	} else if svcStart {
 		err = wsHashSrv.Start()
 		if err != nil {
 			log.Fatal(err)
 		}
 		log.Printf("Service \"%s\" started.\n", displayName)
 		os.Exit(0)
-	} else if svcStop == true {
+	} else if svcStop {
 		err = wsHashSrv.Stop()
 		if err != nil {
 			log.Fatal(err)
@@ -115,7 +116,7 @@ func init() {
 		os.Exit(0)
 	}
 
-	if noisy == false {
+	if !noisy {
 		log.SetOutput(ioutil.Discard)
 	}
 }
@@ -154,21 +155,14 @@ func main() {
 		defer pprof.StopCPUProfile()
 	}
 
-	if svcRun == true {
+	if svcRun {
 		startWork()
+		defer stopWork()
 		sigChan := make(chan os.Signal, 2)
-		signal.Notify(sigChan, os.Interrupt, os.Kill)
-		for {
-			select {
-			case event := <-sigChan:
-				log.Print(event)
-				switch event {
-				case os.Interrupt, os.Kill: //SIGINT, SIGKILL
-					return
-				}
-			}
-		}
-		stopWork()
+		signal.Notify(sigChan, os.Interrupt)
+		event := <-sigChan
+		log.Print(event)
+		return
 	} else {
 		err = wsHashSrv.Run()
 		if err != nil {

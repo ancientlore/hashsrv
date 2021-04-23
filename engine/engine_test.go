@@ -158,7 +158,7 @@ func TestEngine(t *testing.T) {
 			t.Errorf("test case \"%s\": %s", testCase.name, err.Error())
 		}
 
-		if bytes.Compare(testCase.result, b) != 0 {
+		if !bytes.Equal(testCase.result, b) {
 			t.Errorf("test case \"%s\": unexpected result\n\t\texpected: %v\n\t\tgot:      %v", testCase.name, testCase.result, b)
 		}
 	}

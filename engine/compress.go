@@ -7,9 +7,10 @@ import (
 	"compress/gzip"
 	"compress/lzw"
 	"compress/zlib"
-	"github.com/golang/snappy"
 	"io"
 	"io/ioutil"
+
+	"github.com/golang/snappy"
 )
 
 func (e *Engine) snappy() error {
@@ -74,8 +75,7 @@ func (e *Engine) deflate() error {
 
 func (e *Engine) inflate() error {
 	buf := bytes.NewBuffer(e.stack.Pop())
-	var r io.ReadCloser
-	r = flate.NewReader(buf)
+	r := flate.NewReader(buf)
 	data, err := ioutil.ReadAll(r)
 	r.Close()
 	if err == nil {
@@ -121,8 +121,7 @@ func (e *Engine) ungzip() error {
 
 func (e *Engine) unbzip2() error {
 	buf := bytes.NewBuffer(e.stack.Pop())
-	var r io.Reader
-	r = bzip2.NewReader(buf)
+	r := bzip2.NewReader(buf)
 	data, err := ioutil.ReadAll(r)
 	if err == nil {
 		e.stack.Push(data)

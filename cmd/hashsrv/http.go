@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/ancientlore/hashsrv/engine"
 	"io/ioutil"
 	"net/http"
 	"strings"
+
+	"github.com/ancientlore/hashsrv/engine"
 )
 
 const (
@@ -47,10 +48,11 @@ func root(w http.ResponseWriter, r *http.Request) {
 	} else {
 		arr = make([]string, 0)
 	}
+	var rb []byte
 	if len(arr) == 0 && r.Method == "GET" {
-		b = eng.Help()
+		rb = eng.Help()
 	} else {
-		b, err = eng.Run(arr)
+		rb, err = eng.Run(arr)
 	}
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -58,7 +60,7 @@ func root(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Write response
-	_, err = w.Write(b)
+	_, err = w.Write(rb)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

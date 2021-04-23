@@ -6,6 +6,7 @@ import (
 	"crypto/des"
 	"errors"
 	"fmt"
+
 	"golang.org/x/crypto/blowfish"
 	"golang.org/x/crypto/twofish"
 )
@@ -38,7 +39,7 @@ func (e *Engine) cfb(cipherBlock func(key []byte) (cipher.Block, error)) error {
 	iv := e.stack.Pop()
 	plaintext := e.stack.Pop()
 	if key == nil || iv == nil || plaintext == nil {
-		return errors.New("Expected data, IV, and key on the stack")
+		return errors.New("expected data, IV, and key on the stack")
 	}
 	block, err := cipherBlock(key)
 	if err != nil {
@@ -56,7 +57,7 @@ func (e *Engine) uncfb(cipherBlock func(key []byte) (cipher.Block, error)) error
 	iv := e.stack.Pop()
 	ciphertext := e.stack.Pop()
 	if key == nil || iv == nil || ciphertext == nil {
-		return errors.New("Expected data, IV, and key on the stack")
+		return errors.New("expected data, IV, and key on the stack")
 	}
 	block, err := cipherBlock(key)
 	if err != nil {
@@ -74,7 +75,7 @@ func (e *Engine) ofb(cipherBlock func(key []byte) (cipher.Block, error)) error {
 	iv := e.stack.Pop()
 	text1 := e.stack.Pop()
 	if key == nil || iv == nil || text1 == nil {
-		return errors.New("Expected data, IV, and key on the stack")
+		return errors.New("expected data, IV, and key on the stack")
 	}
 	block, err := cipherBlock(key)
 	if err != nil {
@@ -92,7 +93,7 @@ func (e *Engine) ctr(cipherBlock func(key []byte) (cipher.Block, error)) error {
 	iv := e.stack.Pop()
 	text1 := e.stack.Pop()
 	if key == nil || iv == nil || text1 == nil {
-		return errors.New("Expected data, IV, and key on the stack")
+		return errors.New("expected data, IV, and key on the stack")
 	}
 	block, err := cipherBlock(key)
 	if err != nil {
