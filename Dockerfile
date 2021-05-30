@@ -6,8 +6,8 @@ RUN go version
 RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on go get .
 RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on go install
 
-FROM gcr.io/distroless/static:nonroot
+FROM ancientlore/goimg:latest
 COPY hashsrv.config /go/etc/hashsrv.config
-COPY --from=builder /go/bin/hashsrv /go/bin/hashsrv
+COPY --from=builder /go/bin/hashsrv /usr/bin/hashsrv
 EXPOSE 9009
-ENTRYPOINT ["/go/bin/hashsrv", "-run"]
+ENTRYPOINT ["/usr/bin/hashsrv", "-run"]
