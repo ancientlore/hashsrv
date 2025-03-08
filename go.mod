@@ -3,7 +3,7 @@ module github.com/ancientlore/hashsrv
 require (
 	github.com/ancientlore/flagcfg v1.2.0
 	github.com/facebookgo/flagenv v0.0.0-20160425205200-fcd59fca7456
-	github.com/golang/snappy v0.0.4
+	github.com/golang/snappy v1.0.0
 	github.com/kardianos/service v1.2.2
 	golang.org/x/crypto v0.36.0
 )
