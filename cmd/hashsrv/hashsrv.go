@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"runtime"
 	"runtime/pprof"
 
 	"github.com/ancientlore/flagcfg"
@@ -142,8 +141,6 @@ func (i impl) Stop(s service.Service) error {
 
 func main() {
 	var err error
-
-	runtime.GOMAXPROCS(runtime.NumCPU())
 
 	if cpuprofile != "" {
 		f, err := os.Create(cpuprofile)

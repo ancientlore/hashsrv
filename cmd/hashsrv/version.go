@@ -1,5 +1,5 @@
 package main
 
 var (
-	HASHSRV_VERSION = "1.4"
+	HASHSRV_VERSION = "1.16"
 )
