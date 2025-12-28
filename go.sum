@@ -1,7 +1,7 @@
-github.com/BurntSushi/toml v1.5.0 h1:W5quZX/G/csjUnuI8SUYlsHs9M38FC7znL0lIO+DvMg=
-github.com/BurntSushi/toml v1.5.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2lLoLwho=
-github.com/ancientlore/flagcfg v1.3.0 h1:XD+nVdcYrPsRnvZgW2XADs5dlAKUrSIxQ49NaDd5k70=
-github.com/ancientlore/flagcfg v1.3.0/go.mod h1:NBfCYhdaaGQ7KE6Tp5rAyuCeUGLgmNhVGEVktBAvZCs=
+github.com/BurntSushi/toml v1.6.0 h1:dRaEfpa2VI55EwlIW72hMRHdWouJeRF7TPYhI+AUQjk=
+github.com/BurntSushi/toml v1.6.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2lLoLwho=
+github.com/ancientlore/flagcfg v1.4.0 h1:TnVlThC/sOHnGmhYUolMgdB6kuHc0NAZQ/Owd2BpXWo=
+github.com/ancientlore/flagcfg v1.4.0/go.mod h1:rnkaAAwU4LRdBxEgNPcNLKUrtDY3MNghfWdcDzbgG0c=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/facebookgo/ensure v0.0.0-20200202191622-63f1cf65ac4c h1:8ISkoahWXwZR41ois5lSJBSVw4D0OV19Ht/JSTzvSv0=
