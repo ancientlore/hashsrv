@@ -5,7 +5,7 @@ require (
 	github.com/facebookgo/flagenv v0.0.0-20160425205200-fcd59fca7456
 	github.com/golang/snappy v1.0.0
 	github.com/kardianos/service v1.3.0
-	golang.org/x/crypto v0.55.0
+	golang.org/x/crypto v0.56.0
 )
 
 require (
@@ -17,4 +17,4 @@ require (
 	golang.org/x/sys v0.47.0 // indirect
 )
 
-go 1.25.0
+go 1.26.0
